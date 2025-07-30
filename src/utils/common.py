@@ -2,17 +2,6 @@ from typing import Dict, Any
 from ..tools import pdf_tool, docx_tool, excel_tool, csv_tool
 
 
-async def parse_page_range(page_range: str) -> set[int]:
-    if not page_range or page_range.lower() == "all":
-        return set()
-    pages = set()
-    for part in page_range.split(","):
-        if "-" in part:
-            start, end = map(int, part.split("-"))
-            pages.update(range(start, end + 1))
-        else:
-            pages.add(int(part))
-    return pages
 
 
 async def call_tool(name: str, arguments: Dict[str, Any]) -> str:

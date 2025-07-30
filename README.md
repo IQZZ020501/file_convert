@@ -47,7 +47,7 @@ uv sync
 
 1. 启动 MCP 服务器：
 ```bash
-python -m mcp_server_file_convert.server
+uv run -m src.server
 ```
 
 2. 通过 MCP 客户端调用工具

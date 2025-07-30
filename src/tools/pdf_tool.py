@@ -1,9 +1,21 @@
 import pdfplumber
 from pathlib import Path
 import logging
-from ..utils.common import parse_page_range
 
 logger = logging.getLogger("file_to_markdown")
+
+
+async def parse_page_range(page_range: str) -> set[int]:
+    if not page_range or page_range.lower() == "all":
+        return set()
+    pages = set()
+    for part in page_range.split(","):
+        if "-" in part:
+            start, end = map(int, part.split("-"))
+            pages.update(range(start, end + 1))
+        else:
+            pages.add(int(part))
+    return pages
 
 
 async def pdf_to_text(arguments: dict) -> str:
