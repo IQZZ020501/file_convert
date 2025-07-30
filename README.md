@@ -54,46 +54,21 @@ python -m mcp_server_file_convert.server
 
 ### 支持的工具
 
-#### 1. PDF 转文本
 ```json
 {
-  "tool": "pdf_to_text",
-  "arguments": {
-    "file_path": "path/to/document.pdf",
-    "page_range": "1-5"  // 可选，支持 "all", "1-5", "1,3,5" 等格式
+  "mcpServers": {
+    "file_convert": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "D:\\file_convert\\src",
+        "run",
+        "server.py"
+      ]
+    }
   }
 }
-```
 
-#### 2. Word 文档转 Markdown
-```json
-{
-  "tool": "docx_to_markdown",
-  "arguments": {
-    "file_path": "path/to/document.docx"
-  }
-}
-```
-
-#### 3. Excel 转 Markdown
-```json
-{
-  "tool": "excel_to_markdown",
-  "arguments": {
-    "file_path": "path/to/spreadsheet.xlsx",
-    "sheet_name": "Sheet1"  // 可选，默认处理所有工作表
-  }
-}
-```
-
-#### 4. CSV 转 Markdown
-```json
-{
-  "tool": "csv_to_markdown",
-  "arguments": {
-    "file_path": "path/to/data.csv"
-  }
-}
 ```
 
 ## 转换示例
